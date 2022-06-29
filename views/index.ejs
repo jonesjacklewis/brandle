@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <p>Welcome to <%= title %>
+  </p>
+
+  <div class="content">
+
+    <div class="group" id="guess">
+      <form>
+        <label for="brand">Brand:</label>
+        <select name="brand" id="userGuess">
+          <% for( let index=0; index < results.length; index++ ) { %>
+            <option value="<%= results[index].brand %>">
+              <%= results[index].trueName %>
+            </option>
+            <% } %>
+
+        </select> <br><br>
+        <button id="btnGuess">Guess</button>
+        <button id="btnNewGame">New Game</button>
+      </form>
+    </div>
+
+    <div class="group" id="guesses">
+      <h2>Guesses</h2>
+      <h3><span id="currentLives"></span> lives remaining</h3>
+      <ul id="guessList">
+      </ul>
+    </div>
+
+    <div class="group" id="toGuess">
+      <h2>Colour To Guess</h2>
+      <div class="square" id="colourToGuess" style="background-color:#<%= colour %> ">
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="/javascripts/main.js"></script>
+</body>
+
+</html>
